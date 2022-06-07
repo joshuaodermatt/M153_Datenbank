@@ -3,23 +3,24 @@ USE BierLexikon;
 
 CREATE TABLE BierLiebhaber
 (
-    BierLiebhaberId int NOT NULL ,
+    BierLiebhaberId int NOT NULL AUTO_INCREMENT,
     Name varchar(45) NOT NULL ,
+    Vorname varchar(45) NOT NULL,
     Geburtsdatum date NOT NULL ,
     PRIMARY KEY (BierLiebhaberId)
 );
 
 CREATE TABLE BierTyp
 (
-    BierTypId int NOT NULL ,
-    Name varchar(45) NOT NULL ,
+    BierTypId int NOT NULL AUTO_INCREMENT,
+    Name varchar(45) NOT NULL,
     PRIMARY KEY (BierTypId)
 );
 
 
 CREATE TABLE Marken
 (
-    MarkenId int NOT NULL ,
+    MarkenId int NOT NULL AUTO_INCREMENT,
     Name varchar(45) NOT NULL ,
     Gruendungsjahr smallint NOT NULL ,
     Standort varchar(45) NOT NULL ,
@@ -28,11 +29,11 @@ CREATE TABLE Marken
 
 CREATE TABLE Biersorten
 (
-    BierstortenId int NOT NULL ,
+    BierstortenId int NOT NULL AUTO_INCREMENT,
     Name varchar(45) NOT NULL ,
     Fk_BierTypId int NOT NULL ,
     Fk_MarkenId int NOT NULL ,
-    Veroefentlichungsdatum date NOT NULL ,
+    Veroefentlichungsjahr smallint NOT NULL ,
     Alkoholfrei bit NOT NULL ,
     Alkoholgehalt float NOT NULL ,
     PRIMARY KEY (BierstortenId),
@@ -43,7 +44,7 @@ CREATE TABLE Biersorten
 
 CREATE TABLE BierFavorit
 (
-    BierFavoritId int NOT NULL ,
+    BierFavoritId int NOT NULL AUTO_INCREMENT,
     BierLiebhaberId int NOT NULL ,
     BierstortenId int NOT NULL ,
     PRIMARY KEY (BierFavoritId),
