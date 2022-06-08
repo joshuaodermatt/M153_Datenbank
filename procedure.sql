@@ -12,9 +12,6 @@ END $$
 
 DELIMITER ;
 
-CALL sp_DurchschnitAlkoholgehaltVon('Corona', @average);
-SELECT @average;
-
 
 
 
