@@ -18,3 +18,15 @@ CREATE TRIGGER gruendungsjahr_ueberprüfen
     END;
 
 DELIMITER ;
+
+DROP TRIGGER IF EXISTS delete_marke_cleanup;
+
+DELIMITER $$
+CREATE TRIGGER delete_marke_cleanup
+    BEFORE DELETE
+    ON Marken FOR EACH ROW
+    BEGIN
+        CALL  delete_products_of_marke(OLD.MarkenId);
+    END;
+
+DELIMITER ;
